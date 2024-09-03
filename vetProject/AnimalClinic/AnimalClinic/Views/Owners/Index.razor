@@ -1,0 +1,28 @@
+﻿@model IEnumerable<AnimalClinic.Models.Owner>
+
+<h2>Owners</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Contact Info</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var owner in Model)
+        {
+            <tr>
+                <td>@owner.Name</td>
+                <td>@owner.ContactInfo</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = owner.OwnerID })">Edit</a> |
+                    <a href="@Url.Action("Delete", new { id = owner.OwnerID })">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Create")">Create New Owner</a>
